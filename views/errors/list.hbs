@@ -1,0 +1,36 @@
+{{#each messages}}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {{this}}
+</div>
+{{/each}}
+
+<div class="page-header">
+    <h1>TODO listám</h1>
+</div>
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Időpont</th>
+            <th>Státusz</th>
+            <th>Leírás</th> 
+            <th>Szerkesztés</th>
+            <th>Törlés</th>
+        </tr>   
+    </thead>
+    <tbody>
+        {{#each errors}}
+        
+            <tr>
+                <td>{{date}}</td>
+                <td><span class="label label-{{statusClass}}">{{statusText}}</span></td>
+                <td>{{description}}</td>
+                <td><a class="glyphicon glyphicon-edit" aria-hidden="true"  href="/errors/edit/{{id}}"></a></td>
+                <td><a class="glyphicon glyphicon-remove" aria-hidden="true"  href="/errors/delete/{{id}}"></a></td>
+            </tr>            
+        {{/each}}
+    </tbody>
+</table>
+
+<p><a href="/errors/new" class="btn btn-default">Új TODO felvitele</a></p>
